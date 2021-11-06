@@ -4,9 +4,485 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>FullStack_Academic_Project</title>
+    <title>ritik_full_Project</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <style>
+        *
+        {
+            padding: 0%;
+            margin: 0%;
+            box-sizing: border-box;
+        }
+        body{
+            width: 100%;
+        }
+        .logo
+        {
+            display: inline-block;
+            float: left;
+            margin-right: 30px;
+            margin-left: 40px;
+        }
+        .header ul{
+            display: inline-flex;
+            background-color: gray;
+            margin: auto;
+            width: 100%;
+        }
+        .header ul li{
+            font-size: 40px;
+            list-style-type: none;
+            padding-left: 50px;
+            padding-right: 50px;
+            padding-top: 10px;
+            padding-bottom: 10px;
+        }
+        .header ul li a
+        {
+            text-decoration: none;
+            color:white;
+        }
+        .fa
+        {
+            margin-right: 5px;
+        }
+        .header ul li:hover
+        {
+            background-color: red;
+        } 
+        .header ul li a:hover
+        {
+            color: blue;
+            border-bottom: 2px solid black;
+            
+        }
+        
+        /*-----------DROPDOWN 1-----------------*/
+        .dropdown1
+        {
+            display: none;
+            background-color: red;
+        }
+        .header ul li:hover .dropdown1 
+        {
+            display: block;
+            position: absolute;
+            margin-top: 10.2px;
+            margin-left: -50px;
+        }
+        .header ul li:hover .dropdown1 ul
+        {
+            display: block;
+            background-color: red;
+            
+        }
+        
+        /*-----------DROPDOWN 2-----------------
+        .dropdown2
+        {
+            display: none;
+            background-color: grey;
+        }
+        .select:hover .dropdown2
+        {
+            display: block;
+            position: absolute;
+            margin-top: -47px;
+            margin-left: 202px;
+        }*/
+        /*-------------bus animation code
+        .home
+        {
+            background-image: url("./assests/Bus_Banner01.jpg");
+            background-repeat: repeat;
+            width: 100%;
+            height: 350px;
+            display: block;
+            animation: highway 60s linear infinite;
+            position: relative;
+            margin-top: 100px;
+        }
+        @keyframes highway {
+            100%
+            {
+                transform: translateX(-1500px);
+            }
+        }
+        .bus1
+        {
+            position:relative;
+            display: inline-block;
+            float: left;
+            bottom: 95px;
+            left: 200px;
+        } 
+        .bus2
+        {
+            position:relative;
+            display: inline-block;
+            float: right;
+            bottom: 95px;
+            right: 150px;
+        } */
+        .container-fluid
+        {
+            background-image: url(image/background.jpg);
+            background-position: center;
+            max-width: 100%;
+            position: relative;
+            margin: auto;
+            background-size: cover;
+            overflow: hidden;
+            color: white;
+        }
+        .slideshow-container .row
+        {
+            height: 88vh;
+            background-color: rgba(0,0,0,0.8);
+        }
+        .prev, .next
+        {
+            cursor: pointer;
+            position: absolute;
+            top: 50%;
+            width: auto;
+            margin-top: -22px;
+            padding: 16px;
+            color: rgb(252, 252, 252);
+            font-weight:bold;
+            font-size: 18px;
+            transition: 0.6s ease;
+            border-radius: 0 3px 3px 0;
+            user-select: none;
+            background-color: rgba(0,0,0,0.5);
+            z-index: 999;
+        }
+        .next
+        {
+            right: 0;
+        }
+        .left-text
+        {
+            position: relative;
+        }
+        .left-text h1
+        {
+            font-size: 150px;
+            margin-left:0;
+            width: fit-content;
+            letter-spacing: 18px;
+            animation: 1s ease forwards;
+            animation-name:slideInleft ;
+        }
+        .left-text img
+        {
+            position: absolute;
+            left: 0px;
+            animation: 1s ease forwards;
+            animation-name:  slideInRight ;
+        }
+        .right-text h1:nth-child(1)
+        {
+            display: flex;
+            justify-content:left;
+            align-items: left;
+            text-align:left;
+            font-size: 80px;
+            margin-top: 50%;
+        }
+        .right-text h1:nth-child(2)
+        {
+            display: flex;
+            justify-content:left;
+            align-items: center;
+            text-align:left;
+            font-size: 80px;
+        }
+        .right-text h1
+        {
+            color: transparent;
+            animation: textshow 0.5s ease forwards;
+            animation-delay: 2s;
+            position: relative;
+            font-size: 800px;
+            letter-spacing: 5px;
+        }
+        .right-text h1:nth-child(1)
+        {
+            animation-delay: 1s;
+        }
+        .right-text h1:nth-child(2)
+        {
+            animation-delay: 2s;
+        }
+        @keyframes textshow 
+        {
+            100%
+            {
+                color: white;
+            }
+        }
+        .right-text h1 span
+        {
+            position: absolute;
+            left: 100;
+            height: 100%;
+            width: 0;
+            background-image: linear-gradient(rgb(255, 166, 0), rgb(245, 245, 240), green);
+            animation: boxshow 1s ease forwards;
+            animation-delay: 0.5s;
+        }
+        .right-text h1:nth-child(1) span
+        {
+            animation-delay: 0.5s;
+        }
+        .right-text h1:nth-child(2) span
+        {
+            animation-delay: 1.5s;
+        }
+        @keyframes boxshow
+        {
+            50% 
+            {
+            	width: 100%;
+            	left: 0;
+        	}
+        	100% 
+            {
+                width: 0;
+                left: 100%;
+        	}
+        }
+        /* animations */
+        @keyframes slideInRight
+        {
+            from
+            {
+                transform: translate3d(100%, 0, 0);
+                visibility: visible;
+            }
+            to
+            {
+                opacity: 1;
+                transform: translate3d(0, 0, 0);
+            }
+        }
+        @keyframes slideInleft
+        {
+            from
+            {
+                transform: translate(-110%,0px);
+                visibility: visible;
+            }
+            to
+            {
+                transform: translate(10px,0px);
+            }
+        }
+        .myslides
+        {
+            position: relative;
+        }
+        .right-text
+        {
+            position: absolute;
+            top: 0;
+            right: 0;
+        }
+        @media(max-width:1330px)
+        {
+            .header ul li
+            {
+                padding: 9px 35px;
+            }
+        }
+        @media(max-width:1220px)
+        {
+            
+            .header ul li
+            {
+                
+                padding: 9px 20px;
+            }
+        }
+        @media(max-width:1100px)
+        {
+            .header ul li
+            {
+                padding: 9px 10px;
+            }
+            .left-text h1
+            {
+                font-size: 100px;
+            }
+            .right-text h1
+            {
+                font-size: 100px;
+            }
+        }
+        @media(max-width:800px){
+            .header ul li
+            {
+                padding: 9px 5px;
+            }
+        }
+
+        .footer>p
+        {
+            
+            background-color: black;
+            color: white;
+            font-size: 25px;
+            text-align: center;
+            padding: 20px 0px;
+            
+        }
+        .footer p::after {
+    content: '';
+    display: block;
+    width: 0;
+    height: 2px;
+    background-color: yellow;
+    position: absolute;
+    left: 0;
+    bottom: -60px;
+    transition: all 0.3s;
+  }
+  .footer p:hover::after {
+    width: 100%;
+  }
+    </style>
+    <script>
+        
+        var slideIndex = 1;
+        showSlides(slideIndex);
+        function plusSlides(n) 
+        {
+            showSlides(slideIndex += n);
+        }
+        function showSlides(n) 
+        {
+            var i;
+            var slides = document.getElementsByClassName("myslides");
+            if (n > slides.length) {
+                slideIndex = 1
+            }
+            if (n < 1) { slideIndex = slides.length }
+            for (i = 0; i < slides.length; i++) 
+            {
+                slides[i].style.display = "none";
+            }
+            slides[slideIndex - 1].style.display = "block";
+        }
+    </script>
 </head>
 <body>
-    fullstack academic project.
+    <header class="header" id="header">
+        <!--<div class="logo">
+            <img src="./assests/Incredible-India.jpg" alt="LOGO" width="100px" height="100px">
+        </div>-->
+        
+        <ul>
+            <div class="logo">
+                <h1><span
+                        style="color: rgb(236, 86, 27); font-size: 50px; font-weight: 1000;">T</span><span>o</span><span
+                        style="color: rgb(20, 228, 20); font-weight: 900;">ur</span> <span
+                        style="color: rgb(236, 86, 27); font-size: 50px; font-weight: 1000;">I</span>nd<span
+                        style="color: rgb(20, 228, 20); font-weight: 900;">ia</span><span
+                        style="color:rgb(20, 228, 20); font-weight: 900">!</span><span
+                        style="color:rgb(236, 86, 27); font-weight: 900;">!</span></h1>
+            </div>
+            <li><a href="index.html"><i class="fa fa-home" ></i>Home</a></li>
+            <li><a href="#"><i class="fa fa-user"></i>About us</a></li>
+            <li>
+                <a href="#"><i class="fa fa-server"></i>service+</a>
+                <div class="dropdown1">
+                    <ul>
+                        <li class="select"><a href="#">recuritment</a></li>
+                        <li><a href="#">development</a></li>
+                        <li><a href="#">training</a></li>
+                    </ul>
+                </div>
+             </li><!--
+            <li>
+                <a href="#"><i class="fa fa-users"></i>blog</a>
+                <div class="dropdown1">
+                    <ul>
+                        <li><a href="#">recuritment</a></li>
+                        <li><a href="#">development</a></li>
+                        <li class="select">
+                            <a href="#">training</a>
+                            <div class="dropdown2">
+                             <ul>
+                                 <li class="select"><a href="#">recuritment</a></li>
+                                 <li><a href="#">development</a></li>
+                                 <li><a href="#">training</a></li>
+                             </ul>
+                         </div>
+                         </li>
+                    </ul>
+                </div>
+         </li>-->
+        <li><a href="#"><i class="fa fa-phone"></i>contact</a></li>
+        </ul>
+    </header>
+    <!---------bus animation
+    <div>
+        <div class="home">
+
+        </div>
+        <div class="bus1"><img src="./assests/Bus1.png" alt="bus1"></div>
+        <div class="bus2"><img src="./assests/Bus2.png" alt="bus1"></div>
+    </div>
+    ----------------->
+    <section>
+        <div class="slideshow-container">
+            <div class="row myslides">
+                <div class="col-lg-8 left-text">
+                    <img src="./assests/tajmahal.jpg" alt="TAJMAHAL" width="100%" height="550vh">
+                    <h1>TAJ <br> MAHAL</h1>
+                </div>
+                <div class="col-lg-4 right-text">
+                    <h1>Incredible <span></span></h1>
+                    <h1>India !!<span></span></h1>
+                </div>
+            </div>
+
+            <div class="row myslides " style="display: none;">
+                <div class="col-lg-8 left-text">
+                    
+                    <img src="./assests/prem mandir.jpg" alt="golden temple" width="100%" height="550vh">
+                    <h1>PREM <br> MANDIR</h1>
+                </div>
+                <div class="col-lg-4 right-text">
+                    <h1>Incredible <span></span></h1>
+                    <h1>India !!<span></span></h1>
+                </div>
+            </div>
+
+            <div class="row myslides" style="display: none;">
+                <div class="col-lg-8 left-text">
+                    
+                    <img src="./assests/2399196.jpg" alt="hawa mahal" width="100%" height="550vh">
+                    <h1>RED<br> FORT</h1>
+                </div>
+                <div class="col-lg-4 right-text">
+                    <h1>Incredible <span></span></h1>
+                    <h1>India !!<span></span></h1>
+                </div>
+            </div>
+        
+        </div>
+        <!--slider-->
+        <a class="prev" style="color: white;" onclick="plusSlides(-1)">&#10094;</a>
+        <a class="next" style="color: white;" onclick="plusSlides(1)">&#10095;</a>
+    </section>
+    <footer class="footer">
+        <p>
+            Copyright © 2021 All Rights Reserved by
+            <a href="./index.html">www.IncredibalIndia.com.</a>
+          </p>
+          <p><a href="#header">back to top</a></p>
+    </footer>
 </body>
 </html>
